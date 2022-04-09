@@ -122,6 +122,25 @@ LOGIN
   color: rgba(255, 255, 255, 1);
 }
 
+/*
+/////////////////////////////////////
+VIDEO DETAIL
+/////////////////////////////////////
+*/
+#VideoDetail_page {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 1);
+}
 
 /*
 /////////////////////////////////////

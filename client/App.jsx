@@ -51,11 +51,19 @@ class App extends React.Component {
     var clickType = e.target.innerHTML;
     var parent = e.target.parentNode.id;
     var clickClass = e.target.className;
+    //jquery get all elements with classname page
+    //for all divs with classname page
+      //set css({'display':'none'})
 
+    var pageElements = document.getElementsByClassName('page');
+    for (var i = 0; i < pageElements.length; i++) {
+      $(`#${pageElements[i].id}`).css({ 'display': 'none' });
+    }
     if (clickClass !== 'home') {
       $(`#${clickType}_page`).css({ 'display': 'inline-block' });
       $('#carousel').css({ 'display': 'none' });
       $('#footer').css({ 'display': 'none' });
+
     } else {
       $(`#${parent}`).css({ 'display': 'none' });
       $('#carousel').css({ 'display': 'inline-block' });
@@ -70,6 +78,8 @@ class App extends React.Component {
       <div>
         <div id="header">
           <button id="loginButton" onClick={this.showModal}>Login</button>
+          {/* following button is just for testing the video card detail */}
+          <button id="videoDetailButton" onClick={this.showModal}>VideoDetail</button>
           <Search changePage={this.showModal} cb={this.updateSearchResults}/>
         </div>
 
@@ -81,22 +91,26 @@ class App extends React.Component {
 
           <Carousel searchResults={this.state.searchResults} trending={this.state.trending}/>
 
-          <div id="Login_page">
+          {/* Next div is just for testing the video card detail */}
+          <div id="Video_Detail_page">
+
+          </div>
+          <div id="Login_page" className="page">
             <Login_Signup />
             <img src={SFicon} onClick={this.showModal} className="home"></img>
           </div>
 
-          <div id="Signup_page">
+          <div id="Signup_page" className="page">
             <Signup />
             <img src={SFicon} onClick={this.showModal} className="home"></img>
           </div>
 
-          <div id="Watchlist_page">
+          <div id="Watchlist_page" className="page">
             <Watchlist />
             <img src={SFicon} onClick={this.showModal} className="home"></img>
           </div>
 
-          <div id="Settings_page">
+          <div id="Settings_page" className="page">
             <Settings />
             <img src={SFicon} onClick={this.showModal} className="home"></img>
           </div>

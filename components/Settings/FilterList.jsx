@@ -3,18 +3,14 @@ import React, { useState, useEffect } from "react";
 
 const FilterList = (props) => {
   return (
-    <div>
+    <div id='filterList'>
       <span>
-        <input type="checkbox" />
+        <input className='checkbox' type='checkbox' />
         no ads
       </span>
       <span>
-        <input type="checkbox" />
+        <input className='checkbox' type='checkbox' />
         free
-      </span>
-      <span>
-        <input type="checkbox" />
-        monthly subscription
       </span>
     </div>
   );

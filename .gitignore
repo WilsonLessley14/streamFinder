@@ -2,6 +2,7 @@ node_modules/
 public/bundle.js
 public/bundle.js.map
 public/bundle.js.LICENSE.txt
+*.env
 
 # macOS
 .DS_Store

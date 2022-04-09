@@ -7,7 +7,7 @@ import Search from '../components/Search.jsx';
 import Carousel from '../components/Carousel.jsx';
 import Signup from '../components/Signup.jsx';
 import Watchlist from '../components/Watchlist.jsx';
-import Settings from '../components/Settings.jsx';
+import Settings from '../components/Settings/Settings.jsx';
 
 // Graphics + branding
 import banner from '../assets/StreamFinderBanner.png';
@@ -24,7 +24,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       searchResults: null,
-      trending: null
+      trending: null,
+      user: {},
+      watch_list: [],
+      watch_history: []
     }
     this.updateSearchResults = this.updateSearchResults.bind(this);
     this.loadTrending = this.loadTrending.bind(this);
@@ -33,7 +36,7 @@ class App extends React.Component {
 
   updateSearchResults(data) {
     this.setState({
-      searchResults: data
+      searchResults: data,
     }, () => {
       console.log('search results updated in App state');
     })
@@ -60,14 +63,15 @@ class App extends React.Component {
       $(`#${pageElements[i].id}`).css({ 'display': 'none' });
     }
     if (clickClass !== 'home') {
-      $(`#${clickType}_page`).css({ 'display': 'inline-block' });
-      $('#carousel').css({ 'display': 'none' });
-      $('#footer').css({ 'display': 'none' });
-
+      $(`#${clickType}-page`).css({ display: 'inline-block' });
+      $('#carousel').css({ display: 'none' });
+      $('#footer').css({ display: 'none' });
+      $('#banner-box').css({ display: 'none' });
     } else {
-      $(`#${parent}`).css({ 'display': 'none' });
-      $('#carousel').css({ 'display': 'inline-block' });
-      $('#footer').css({ 'display': 'flex' });
+      $(`#${parent}`).css({ display: 'none' });
+      $('#carousel').css({ display: 'inline-block' });
+      $('#footer').css({ display: 'flex' });
+      $('#banner-box').css({ display: 'flex' });
     }
 
   }
@@ -77,19 +81,19 @@ class App extends React.Component {
     return (
       <div>
         <div id="header">
-          <button id="loginButton" onClick={this.showModal}>Login</button>
+          <button id="login-button" onClick={this.showModal}>Login</button>
           {/* following button is just for testing the video card detail */}
           <button id="videoDetailButton" onClick={this.showModal}>VideoDetail</button>
           <Search changePage={this.showModal} cb={this.updateSearchResults}/>
         </div>
 
-        <div id="bannerBox">
-          <img src={banner} id="banner"></img>
+        <div id='banner-box'>
+          <img src={banner} id='banner'></img>
         </div>
 
-        <div id="body">
+        <div id='body'>
 
-          <Carousel searchResults={this.state.searchResults} trending={this.state.trending}/>
+          <Carousel searchResults={this.state.searchResults} trending={this.state.trending} />
 
           {/* Next div is just for testing the video card detail */}
           <div id="Video_Detail_page">
@@ -97,41 +101,39 @@ class App extends React.Component {
           </div>
           <div id="Login_page" className="page">
             <Login_Signup />
-            <img src={SFicon} onClick={this.showModal} className="home"></img>
+            <img src={SFicon} onClick={this.showModal} className='home'></img>
           </div>
 
           <div id="Signup_page" className="page">
             <Signup />
-            <img src={SFicon} onClick={this.showModal} className="home"></img>
+            <img src={SFicon} onClick={this.showModal} className='home'></img>
           </div>
 
           <div id="Watchlist_page" className="page">
             <Watchlist />
-            <img src={SFicon} onClick={this.showModal} className="home"></img>
+            <img src={SFicon} onClick={this.showModal} className='home'></img>
           </div>
 
           <div id="Settings_page" className="page">
             <Settings />
-            <img src={SFicon} onClick={this.showModal} className="home"></img>
+            <img src={SFicon} onClick={this.showModal} className='home'></img>
           </div>
 
         </div>
 
-        <div id="footer">
-          <div id="trendingButton" className="footerButton">Trending</div>
-          <div className="divider">|</div>
-          <div id="watchlistButton" className="footerButton" onClick={this.showModal}>Watchlist</div>
-          <div className="divider">|</div>
-          <div id="settingsButton" className="footerButton" onClick={this.showModal}>Settings</div>
+        <div id='footer'>
+          <div id='trending-button' className='footer-button'>Trending</div>
+          <div className='divider'>|</div>
+          <div id='watchlist-button' className='footer-button' onClick={this.showModal}>Watchlist</div>
+          <div className='divider' >|</div>
+          <div id='settings-button' className='footer-button' onClick={this.showModal}>Settings</div>
         </div>
       </div>
     )
 
   }
-
 }
 
 export default App;
-
 
 //<div id="banner">StreamFinder</div>

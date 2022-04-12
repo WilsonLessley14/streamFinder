@@ -1,7 +1,6 @@
 body {
   background-color: rgba(0, 0, 0, 1);
   font-family: "Avenir";
-  color: rgba(255, 255, 255, 1);
   /* font-family: "Dosis", sans-serif; */
   min-width: 350px;
 }
@@ -44,7 +43,7 @@ PAGE LAYOUT
 /////////////////////////////////////
 */
 
-#login-button {
+#loginButton {
   display: inline-block;
   height: 40px;
   width: 60px;
@@ -55,7 +54,7 @@ PAGE LAYOUT
   font-family: "Avenir";
 }
 
-#login-button:hover {
+#loginButton:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 0, 0.9);
   color: rgba(0, 0, 0, 1);
@@ -66,7 +65,7 @@ PAGE LAYOUT
   justify-content: space-between;
 }
 
-#banner-box {
+#bannerBox {
   display: flex;
   justify-content: space-around;
   margin-right: 13%;
@@ -84,7 +83,7 @@ PAGE LAYOUT
   margin-top: 4%;
 }
 
-.footer-button {
+.footerButton {
   display: inline-block;
   width: 5%;
   height: 2%;
@@ -92,7 +91,7 @@ PAGE LAYOUT
   margin: 0 15%;
 }
 
-.footer-button:hover {
+.footerButton:hover {
   color: rgba(255, 255, 50, 0.9);
   cursor: pointer;
 }
@@ -108,7 +107,7 @@ LOGIN
 /////////////////////////////////////
 */
 
-#Login-page {
+#Login_page {
   display: none;
   position: fixed;
   left: 50%;
@@ -123,10 +122,9 @@ LOGIN
   color: rgba(255, 255, 255, 1);
 }
 
-<<<<<<< HEAD
 /*
 /////////////////////////////////////
-VIDEO DETAIL
+VIDEO DETAIL FOR TESTING VIDEO DETAIL PAGE
 /////////////////////////////////////
 */
 #VideoDetail_page {
@@ -144,15 +142,13 @@ VIDEO DETAIL
   color: rgba(255, 255, 255, 1);
 }
 
-=======
->>>>>>> 34c3748ffa4c8192dc9aae62ad09c68cfcb73f68
 /*
 /////////////////////////////////////
 SIGNUP
 /////////////////////////////////////
 */
 
-#Signup-page {
+#Signup_page {
   display: none;
   position: fixed;
   left: 50%;
@@ -167,6 +163,7 @@ SIGNUP
   color: rgba(255, 255, 255, 1);
 }
 
+
 /*
 /////////////////////////////////////
 SEARCH
@@ -177,17 +174,17 @@ SEARCH
   display: flex;
 }
 
-#search-input {
+#searchInput {
   display: inline-block;
   height: 35px;
   width: 200px;
   border: 1px solid black;
   border-radius: 10px 0 0 10px;
-  color: black;
+  color: rgba(255, 255, 255, 1);
   font-family: "Avenir";
 }
 
-#search-button {
+#searchButton {
   display: inline-block;
   height: 40px;
   width: 60px;
@@ -198,11 +195,12 @@ SEARCH
   font-family: "Avenir";
 }
 
-#search-button:hover {
+#searchButton:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 0, 0.9);
   color: rgba(0, 0, 0, 1);
 }
+
 
 /* const styles = StyleSheet.create({
   container: {
@@ -244,6 +242,7 @@ SEARCH
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+
   }
 }); */
 
@@ -254,105 +253,19 @@ CAROUSEL
 */
 
 #carousel {
-  /* background-color: rgba(255, 255, 255, 0.7); */
+  background-color: rgba(255, 255, 255, 0.7);
   display: inline-block;
-  /* height: 400px;
+  height: 400px;
   width: 70%;
   border: 2px solid rgba(255, 255, 100, 0.6);
   border-radius: 10px;
   text-align: center;
-  align-content: center; */
+  align-content: center;
 }
 
 #carouselTitle {
   margin: 100px;
 }
-
-.slide-image {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-#swiper-box {
-  display: inline-block;
-  height: 400px;
-  width: 700px;
-}
-
-.swiper-container {
-  height: 95%;
-}
-
-.swiper-pagination {
-  width: 200px;
-  height: 20px;
-  color: rgba(0, 0, 0, 1);
-  display: flex;
-  /* background-color: white; */
-}
-
-.swiper-pagination-bullet {
-  width: 5px;
-  height: 5px;
-  color: white;
-  border: 1px solid white;
-}
-
-.swiper-pagination-bullet:active {
-  width: 10px;
-  height: 10px;
-}
-
-.swiper-button-prev {
-  color: white;
-  height: 40px;
-  transform: scaleX(-1);
-  margin: 0 5px 30% 0;
-}
-
-.swiper-button-next {
-  color: white;
-  height: 40px;
-  margin: 0 0 30% 5px;
-}
-
-#display-index {
-  color: rgba(255, 255, 255, 1);
-  z-index: 3;
-}
-
-@keyframes glowing {
-
-  0% {
-    box-shadow: 0 0 5px #fcf003;
-  }
-  50% {
-    box-shadow: 0 0 20px #fcf003;
-  }
-  100% {
-    box-shadow: 0 0 5px #fcf003;
-  }
-
-}
-
-.swiper-button-prev:active {
-  animation: glowing 800ms infinite;
-}
-
-.swiper-button-next:active {
-  animation: glowing 500ms infinite;
-}
-
 
 /*
 /////////////////////////////////////
@@ -360,29 +273,13 @@ VIDEO CARDS
 /////////////////////////////////////
 */
 
-.video-card {
-  display: inline-block;
-  height: 97%;
-  width: 97%;
-  color: white;
-  border: 1px solid rgba(255, 255, 0, 0.7);
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin-left: 2px;
-}
-
-.swiper-slide {
-  height: 80%;
-}
-
-
 /*
 /////////////////////////////////////
 WATCHLIST
 /////////////////////////////////////
 */
 
-#Watchlist-page {
+#Watchlist_page {
   display: none;
   position: fixed;
   left: 50%;
@@ -406,208 +303,19 @@ USER SETTINGS
   display: none;
 }
 
-#Settings-page {
+#Settings_page {
   display: none;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   height: 60%;
-  width: 70%;
+  width: 60%;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   text-align: center;
   align-items: center;
   color: rgba(255, 255, 255, 1);
-}
-
-.close {
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.3rem;
-}
-
-.userInfo {
-  text-align: center;
-}
-
-.button {
-  padding: 0.5rem 0.8rem;
-  background-color: rgb(199, 199, 199);
-  border: 1px solid black;
-  border-radius: 12px;
-  font-family: "Avenir";
-  font-weight: 500;
-}
-
-.button:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 0, 0.9);
-}
-
-table {
-  margin: 20px auto;
-}
-
-.tableField {
-  text-align: right;
-}
-
-.tableInput {
-  text-align: left;
-}
-
-.add {
-  display: inline-block;
-  color: rgba(255, 255, 0, 0.9);
-  margin: 0 20px;
-  font-size: 1.5em;
-}
-
-.streamList {
-  border: 0.5px solid rgba(255, 255, 0, 0.9);
-  text-align: left;
-  margin: 20px auto;
-  width: 90%;
-  height: 10.5rem;
-}
-
-#streamTitle {
-  margin: 0.2rem 1rem;
-  display: inline-block;
-}
-
-#streamContainer {
-  padding-top: 0.75rem;
-  margin: 0 auto;
-}
-
-.checkbox {
-  margin-left: 1rem;
-}
-
-.checkbox[type="checkbox"]:checked {
-  accent-color: green;
-}
-
- #filterList {
-  position: absolute;
-  top: 3rem;
-  left: 1rem;
-}
-
-#streamSearch {
-  position: absolute;
-  top: 3rem;
-  right: 3%;
-}
-
-#searchBox {
-  color:rgb(199, 199, 199);
-  padding-left: 0.5rem;
-  border: 0;
-  border-bottom: 0.5px solid rgba(255, 255, 0, 0.9);
-  outline: 0;
-  background: transparent;
-  transition: border-color 0.2s;
-}
-
-#searchBox::placeholder {
-  color: rgb(255, 255, 255);
-  opacity: 0.75;
-}
-
-#searchBox:hover::placeholder {
-  color: black;
-  opacity: 0.8;
-}
-
-#searchBox:hover {
-  background-color: #c4c4c4;
-  color: black;
-}
-
-#searchButton {
-  color: rgba(255, 255, 0, 0.6);
-  font-weight:lighter;
-  padding-left: 4px;
-  transition: .2s transform ease-in-out;
-}
-
-#searchButton:hover {
-  color: rgb(255, 255, 81);
-  filter: blur(0.5px);
-  transform: translate(0, 2px);
-}
-
-#streamGrid {
-  margin: 40px auto;
-  padding: 10px;
-  height: 275px;
-  max-width: 500px;
-  border: 0.5px solid rgba(255, 255, 0, 0.9);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  justify-items: center;
-  grid-gap: 0.5rem;
-  overflow: hidden;
-}
-
-.flex {
-  display: flex;
-  justify-content: flex-start;
-  align-items: start;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 0.5rem;
-}
-
-.stream {
-  border: 0.5px solid rgba(255, 255, 255, 0.7);
-  padding: 0.2rem;
-  height: 80px;
-  width: 67px;
-}
-
-.addStream {
-  float: right;
-  color: rgba(255, 255, 0, 0.9);
-  font-size: 0.85rem;
-}
-
-.streamImg {
-  height: 50px;
-  width: 50px;
-  float: left;
-}
-
-.streamInfo {
-  font-size: 0.3rem;
-  line-height: .5rem;
-  clear: both;
-  text-align: left;
-  vertical-align: bottom;
-}
-
-#pages {
-  position: absolute;
-  left: 45%;
-  bottom: 2%;
-  font-size: 0.65rem;
-}
-
-#store {
-  padding: 50px 10px;
-  height: 100%;
-  overflow: hidden;
 }
 
 /*

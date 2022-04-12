@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 const FilterList = (props) => {
   return (
-    <div id='filterList'>
+    <div id='filter-list'>
       <span>
         <input className='checkbox' type='checkbox' />
         no ads

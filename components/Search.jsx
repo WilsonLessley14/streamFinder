@@ -22,9 +22,9 @@ class Search extends React.Component {
     var searchTerm = this.state.text;
     let options = {
       method: 'post',
-      // url: 'http://127.0.0.1:3000/search',
+      url: 'http://127.0.0.1:3000/search',
       // url: 'http://192.168.1.151:3000/search',
-      url: '/search',
+      // url: '/search',
       data: {
         query: searchTerm
       },

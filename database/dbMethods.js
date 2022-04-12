@@ -27,7 +27,6 @@ var retrieveWatchlist = (id) => {
     })
 }
 
-
 module.exports = {
 
   insertTitle: insertTitle,

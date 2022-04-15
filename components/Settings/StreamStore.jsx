@@ -8,6 +8,8 @@ import StreamSearch from './StreamSearch.jsx';
 const StreamStore = (props) => {
   const [keyword, setKeyword] = useState(null);
   const [streams, setStreams] = useState(props.streams);
+  const [ads, setAds] = useState(false);
+  const [free, setFree] = useState(false);
 
   const closeStore = () => {
     $('#store').addClass('hide');
@@ -15,9 +17,49 @@ const StreamStore = (props) => {
   }
 
   const searchStreams = (keyword) => {
-    const results =  props.streams.filter(stream => {
+    const results = props.streams.filter(stream => {
     return stream.name.includes(keyword);
     });
+    setStreams(results);
+  }
+
+  const filterAds = () => {
+    let results;
+    if($('#no_ads').prop('checked')) {
+      setAds(true);
+      results = streams.filter(stream => {
+      return stream.no_ads === true;
+      });
+    } else {
+      setAds(false);
+      if (free) {
+        results = props.streams.filter(stream => {
+          return stream.free === true;
+        });
+      } else {
+        results = props.streams;
+      }
+    }
+    setStreams(results);
+  }
+
+  const filterFree = () => {
+    let results;
+    if($('#free').prop('checked')) {
+      setFree(true);
+      results = streams.filter(stream => {
+      return stream.free === true;
+      });
+    } else {
+      setFree(false);
+      if (ads) {
+        results = props.streams.filter(stream => {
+          return stream.no_ads === true;
+        });
+      } else {
+        results = props.streams;
+      }
+    }
     setStreams(results);
   }
 
@@ -28,13 +70,17 @@ const StreamStore = (props) => {
           <AiOutlineClose
         class='close'
         id='close-store'/></span>
-      <FilterList />
+      <FilterList
+        filterAds={filterAds}
+        filterFree={filterFree}
+        streams={streams}
+      />
       <StreamSearch search={searchStreams}/>
       <div id='stream-grid' className='grid'>
         {streams.map((stream, i) => (
           <StreamCard
             key={i}
-            name={stream.name}
+            stream={stream}
             addStream={props.addStream}
             removeStream={props.removeStream}
           />

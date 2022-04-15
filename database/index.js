@@ -1,4 +1,5 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
+console.log(process.env.MONGO_API);
 // db key for future deployment db security (non-localhost in connection string)
 const key = process.env.DB_KEY;
 const mongoose = require('mongoose');
@@ -45,16 +46,30 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-
+const streamSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    require: true
+  },
+  logo: String,
+  cost: mongoose.Mixed,
+  no_ads: Boolean,
+  free: Boolean,
+  subscription: Boolean,
+  website: String
+});
 
 const Title = mongoose.model('Title', titleSchema);
 const User = mongoose.model('User', userSchema);
+const Stream =mongoose.model('Stream', streamSchema);
 
 
 
 module.exports = {
 
   Title: Title,
-  User: User
+  User: User,
+  Stream: Stream
 
 }

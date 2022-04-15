@@ -10,12 +10,45 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      streamCards: [
-        {name:'movie1'}, {name:'stream2'}, {name:'stream3'}, {name:'show4'}, {name:'movie5'}, {name:'show6'},
-        {name:'stream7'}, {name:'movie8'}, {name:'show9'}, {name:'movie10'}, {name:'show11'}, {name:'stream12'},
-        {name:'stream13'}, {name:'show14'}, {name:'movie15'}, {name:'stream16'}, {name:'stream17'}, {name:'movie18'}
-      ],
       streams: [
+        {
+          name:'movie1',
+          logo: 'https://i.pinimg.com/474x/f8/b2/4f/f8b24f01d7059f6b63c5572d0d3a736b.jpg',
+          no_ads: false,
+          free: true,
+          cost: 0,
+          subscription: false,
+          website: 'https://google.com'
+        },
+        {
+          name:'show1',
+          logo: 'https://i.pinimg.com/474x/f8/b2/4f/f8b24f01d7059f6b63c5572d0d3a736b.jpg',
+          no_ads: true,
+          free: false,
+          cost: 10,
+          subscription: true,
+          website: 'https://google.com'
+        },
+        {
+          name:'movie2',
+          logo: 'https://i.pinimg.com/474x/f8/b2/4f/f8b24f01d7059f6b63c5572d0d3a736b.jpg',
+          no_ads: true,
+          free: true,
+          cost: 0,
+          subscription: false,
+          website: 'https://google.com'
+        },
+        {
+          name:'show2',
+          logo: 'https://i.pinimg.com/474x/f8/b2/4f/f8b24f01d7059f6b63c5572d0d3a736b.jpg',
+          no_ads: false,
+          free: false,
+          cost: 5.99,
+          subscription: true,
+          website: 'https://google.com'
+        }
+      ],
+      subscriptions: [
         {name: 'Netflix', subbed: false, default: true},
         {name:'Prime', subbed: false, default: true},
         {name:'Hulu', subbed: false, default: true},
@@ -38,20 +71,20 @@ class Settings extends React.Component {
   // }
 
   addStream = (name) => {
-    let index = this.state.streams.findIndex(stream => stream.name === name);
+    let index = this.state.subscriptions.findIndex(stream => stream.name === name);
     if (index < 0) {
       this.setState( state => (
-        { streams: [...state.streams, {name: name, subbed: true, default: false}]}
+        { subscriptions: [...state.subscriptions, {name: name, subbed: true, default: false}]}
       ));
     }
   }
 
   removeStream = (name) => {
-    let index = this.state.streams.findIndex(stream => stream.name === name);
+    let index = this.state.subscriptions.findIndex(stream => stream.name === name);
     if (index >= 0) {
-      let newStreams = this.state.streams;
+      let newStreams = this.state.subscriptions;
       newStreams.splice(index, 1);
-      this.setState({streams: newStreams});
+      this.setState({subscriptions: newStreams});
       $(`#remove-${name}`).addClass('hide');
       $(`#store-${name}`).removeClass('subscribed');
       $(`#sub-${name}`).removeClass('hide');
@@ -72,13 +105,13 @@ class Settings extends React.Component {
           <UserInfo setField={this.setUpdateField}/>
           <button className='button' onClick={this.signOut}>Sign out</button>
           <StreamList
-            streams={this.state.streams}
+            streams={this.state.subscriptions}
             removeStream={this.removeStream}
           />
         </div>
         <EditUser field={this.state.updateField}/>
         <StreamStore
-          streams={this.state.streamCards}
+          streams={this.state.streams}
           addStream={this.addStream}
           removeStream={this.removeStream}
         />

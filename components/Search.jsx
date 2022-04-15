@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react';
 
 class Search extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       text: ''
     };
@@ -20,6 +20,7 @@ class Search extends React.Component {
 
   search() {
     var searchTerm = this.state.text;
+    this.props.updateTerm(searchTerm);
     let options = {
       method: 'post',
       url: 'http://127.0.0.1:3000/search',
@@ -35,7 +36,6 @@ class Search extends React.Component {
     }
     axios(options)
       .then(result => {
-        alert(result.data);
         console.log('data retrieval complete')
         console.log(result.data);
         this.props.cb(result.data);

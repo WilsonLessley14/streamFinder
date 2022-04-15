@@ -1,7 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
+<<<<<<< HEAD:server/server.js
 const path = require('path');
 const port = 3000;
 
@@ -15,33 +16,29 @@ app.use(express.static('public'))
 // app.listen(port, () => {
 //   console.log('listening on port ', port);
 // });
+=======
+const path = require("path");
+const oauth = require("./route_controllers/oauth.js");
+require("dotenv").config();
+const port = process.env.PORT;
 
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static("public"));
+>>>>>>> 4e96623ddc82fb05518a47178c0b578d85e0b18e:server.js
 
+app.use("/oauth", oauth);
 
-///////////////////////
-// Search
-///////////////////////
-
-// given an title string from the search component, this sends back all title detail objects
-app.post('/search', (req, res) => {
-  var searchTerm = req.body.query;
-  getTitleIds(searchTerm)
-  .then(ids => getTitleDetails(ids))
-  .then(data => {
-    res.send(data)
-  })
-  .catch(err => {
-    console.log('error retrieving search results => ', err)
-  });
+app.get("/search", (req, res) => {
+  console.log("get request search button");
+  res.send("get request search button");
+  cosole.log(process.env.GOOGLE_CLIENT_ID);
 });
 
-
-// given an id, this sends back all related title detail objects
-app.post('/related', (req, res) => {
-  var id = req.body.query;
-  getRelated(id)
-  .then(data => res.send(data));
+app.listen(port, () => {
+  console.log("listening on port ", port);
 });
+<<<<<<< HEAD:server/server.js
 
 
 
@@ -80,3 +77,5 @@ app.get('/watchlist/:userID', (req, res) => {
 
 
 module.exports = app;
+=======
+>>>>>>> 4e96623ddc82fb05518a47178c0b578d85e0b18e:server.js

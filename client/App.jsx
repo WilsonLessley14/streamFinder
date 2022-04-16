@@ -197,7 +197,8 @@ class App extends React.Component {
 
           <div id="Title-page">
             <VideoCard
-              title={this.state.searchResults[this.state.selectedTitleIndex]}
+              title={this.state.searchResults[this.state.selectedTitleIndex + 1]}
+              testTitle={this.state.toCarousel[0][0]}
             />
             <img
               src={SFicon}

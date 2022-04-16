@@ -35,7 +35,7 @@ class App extends React.Component {
       user_email: null,
       watch_list: [],
       watch_history: [],
-      subscriptions: [],
+      subscriptions: ['Disney Plus', 'iTunes', 'Amazon'],
     };
     this.updateSearchResults = this.updateSearchResults.bind(this);
     this.loadTrending = this.loadTrending.bind(this);

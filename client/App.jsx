@@ -140,9 +140,8 @@ class App extends React.Component {
     var clickType = e.target.innerHTML;
     var parent = e.target.parentNode.id;
     var clickClass = e.target.className;
-    //jquery get all elements with classname page
-    //for all divs with classname page
-      //set css({'display':'none'})
+//////////////
+    $(".page").css({'display':'none'});
 
     if (clickClass !== "home") {
       $(`#${clickType}-page`).css({ display: "inline-block" });
@@ -195,7 +194,7 @@ class App extends React.Component {
             searchTerm={this.state.searchTerm}
           />
 
-          <div id="Title-page">
+          <div className="page" id="Title-page">
             <VideoCard
               title={this.state.searchResults[this.state.selectedTitleIndex + 1]}
               testTitle={this.state.toCarousel[0][0]}
@@ -208,7 +207,7 @@ class App extends React.Component {
             ></img>
           </div>
 
-          <div id="Login-page">
+          <div className="page" id="Login-page">
             <Login_Signup />
             <img
               src={SFicon}
@@ -218,7 +217,7 @@ class App extends React.Component {
             ></img>
           </div>
 
-          <div id="Signup-page">
+          <div className="page" id="Signup-page">
             <Signup />
             <img
               src={SFicon}
@@ -228,7 +227,7 @@ class App extends React.Component {
             ></img>
           </div>
 
-          <div id="Watchlist-page">
+          <div className="page" id="Watchlist-page">
             <Watchlist />
             <img
               src={SFicon}
@@ -238,7 +237,7 @@ class App extends React.Component {
             ></img>
           </div>
 
-          <div id="Settings-page">
+          <div className="page" id="Settings-page">
             <Settings />
             <img
               src={SFicon}
